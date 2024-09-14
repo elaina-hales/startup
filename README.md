@@ -19,7 +19,7 @@ Below are three sketches of what the interface will look like on a phone:
 ### Technologies
 - **HTML** - Using HTML for structure. 3-4 HTML pages, one for score, login, game play, and information if they aren't sure how to play.
 - **CSS** - Application styling for different screen sizes
-- **React** - Users can type their answers and submit them, use buttons to interact with the game.
-- **Service** - Backend service for retrieving the category of the day and entering new user scores into the application.
-- **DB/Login** -  Store users and scores in database. Register and login users. Credentials securely stored in database. Can't see the leaderboard unless authenticated.
+- **React** - Users can type their answers and submit them, use buttons to interact with the game
+- **Service** - Backend service for retrieving the category of the day and entering new user scores into the application
+- **DB/Login** -  Store users and scores in database. Register and login users. Credentials securely stored in database. Can't see the leaderboard unless authenticated
 - **Websocket** -  Leaderboard allows users to see each other's scores
