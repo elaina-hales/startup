@@ -1,4 +1,4 @@
-# 
+# Vocab Battle
 
 ## Specification Deliverable 
 ### Elevator Pitch
@@ -8,7 +8,12 @@ Have you ever wanted to use your expansive vocabulary to compete against your fr
 ![](VocabMockUIJoined.jpeg)
 
 ### Key Features
-- 
+- Users will be able to see each other's scores in real time
+- Users can create accounts to store their scores
+- Updates every day with a new category for users to interact with
+- Fast, automatic gameplay (users only need to worry about typing)
+- Answers are checked for validity by the application
+- Answers can be contested and count for half points/ put up for vote
 
 ### Technologies
 - **HTML** - 
