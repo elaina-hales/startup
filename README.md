@@ -23,3 +23,14 @@ Below are three sketches of what the interface will look like on a phone:
 - **Service** - Backend service for retrieving the category of the day and entering new user scores into the application
 - **DB/Login** -  Store users and scores in database. Register and login users. Credentials securely stored in database. Can't see the leaderboard unless authenticated
 - **Websocket** -  Leaderboard allows users to see each other's scores
+
+## HTML deliverable
+
+For this deliverable I built out the structure of my application using HTML.
+
+- [x] **HTML pages** - I created four HTML pages for structure. They represent the main play page, the score page, the instructions page, and the leaderboard page.
+- [x] **Links** - The play page automatically links to the other pages via a menu item.
+- [ ] **Interaction** I added HTML buttons as placeholders for future interaction. Currently, they don't do anything.
+- [x] **Images** - I included an image for the instructions page, but it will need to be updated as I add the CSS and the play page looks different.
+- [x] **DB/Login** - I added an input box and submit button for login, but it doesn't store itself in a database yet.
+- [x] **WebSocket** - I added a leaderboard that represents a hypothetical leaderboard. It is a placeholder.
