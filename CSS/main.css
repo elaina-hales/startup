@@ -6,11 +6,14 @@ body {
 
 header {
   flex: 0 80px;
+  display: inline;
+  background-color: #83689d;
+  color: white;
 }
 
 main {
   flex: 1 calc(100vh - 110px);
-  display: flex;
+  display: flex !important;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
@@ -23,22 +26,26 @@ footer {
 menu {
   flex: 1;
   display: flex;
-  /*  overwrite Bootstrap so the menu does not wrap */
-  flex-direction: row !important;
   list-style: none;
 }
 
 .navbar-brand {
   padding-left: 0.3em;
-  border-bottom: solid rgb(182, 182, 182) thin;
 }
 
 menu .nav-item {
   padding: 0 0.3em;
 }
 
+footer {
+  background-color: #83689d;
+  color: white;
+  padding: 0.5em;
+}
+
 footer a {
   float: right;
+  color: white;
 }
 
 @media (max-height: 600px) {
