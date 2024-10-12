@@ -17,27 +17,11 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  margin: 0.75em;
 }
 
 footer {
   flex: 0 30px;
-}
-
-menu {
-  flex: 1;
-  display: flex;
-  list-style: none;
-}
-
-.navbar-brand {
-  padding-left: 0.3em;
-}
-
-menu .nav-item {
-  padding: 0 0.3em;
-}
-
-footer {
   background-color: #83689d;
   color: white;
   padding: 0.5em;
