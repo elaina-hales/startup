@@ -13,33 +13,31 @@ main {
   padding: 1em;
 }
 
-h1 {
+header {
   margin-top: 2em;
 }
 
-#subheading {
-  float: center;
-}
-
-#basic-addon1 {
-  background-color: #a98ec3;
-}
-
-
-p {
-  margin: 1em;
-}
-
-/* button[class="btn btn-primary"] {
+button[class="btn btn-primary"] {
   align-self: center;
   margin-top: 0em;
-} */
+  background-color: #83689d !important;
+  border: #83689d;
+}
+
+button[class="btn btn-secondary"] {
+  align-self: center;
+  margin-top: 0em;
+  background-color: #ffffff !important;
+  color:#83689d !important;
+  border: #83689d !important;
+}
 
 footer {
   flex: 0 30px;
   background-color: #a5a5a5;
   color: white;
   padding: 0.5em;
+  margin-bottom: 0em;
 }
 
 footer a {
