@@ -4,13 +4,6 @@ body {
   min-width: 375px;
 }
 
-header {
-  flex: 0 80px;
-  display: inline;
-  background-color: #83689d;
-  color: white;
-}
-
 main {
   flex: 1 calc(100vh - 110px);
   display: flex !important;
@@ -19,6 +12,41 @@ main {
   justify-content: space-around;
   margin: 0.75em;
 }
+
+nav {
+  flex: 0 80px;
+  display: inline;
+  background-color: #755991 !important;
+  color: white !important;
+}
+
+
+main.h3,p {
+  margin: auto;
+  display: inline;
+}
+
+button[class="btn btn-primary"] {
+  align-self: center;
+  margin-top: 0em;
+}
+
+.category-block {
+  background-color: #c8b5db;
+  padding: 1em;
+  color: white;
+  align-items: center;
+  border-radius: 10px;
+}
+
+
+.timer {
+  margin-left: auto;
+  margin-top: 0em;
+  margin-bottom: 0em;
+  text-align: right;
+}
+
 
 footer {
   flex: 0 30px;
