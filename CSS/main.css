@@ -2,10 +2,11 @@ body {
   display: flex;
   flex-direction: column;
   min-width: 375px;
+  height: 100%;
 }
 
 main {
-  flex: 1 calc(100vh - 110px);
+  flex: 1 calc(100vh - 95px);
   display: flex !important;
   flex-direction: column;
   align-items: center;
@@ -14,6 +15,7 @@ main {
 }
 
 header {
+  flex: 0 50px;
   margin-top: 2em;
 }
 
@@ -37,7 +39,6 @@ footer {
   background-color: #a5a5a5;
   color: white;
   padding: 0.5em;
-  margin-bottom: 0em;
 }
 
 footer a {

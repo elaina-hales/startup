@@ -7,6 +7,7 @@
     <link rel="icon" href="VBicon.png" />
 
     <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="play.css" />
 
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
@@ -42,26 +43,27 @@
     </nav>
 
     <main>
-      <p class="timer">Timer: 0:30</p>
-      <!-- <h3>Welcome to Vocab Battle</h3> -->
-      <button type="button" class="btn btn-primary">Begin</button>
-      <div class="category-block">
-        <h4>Today's Category:</h4>
-        <h4 type="category">Fast Food Places</h4>
+      <div class='subheader'>
+        <p class="timer">Timer: 0:30</p>
+        <div class="category-block">
+          <p>Today's Category:</p>
+          <h2 id="category">Fast Food Places</h2>
+        </div>
       </div>
-      <form method="get">
-          <input type="entry" placeholder="Entry 1" />
-          <input type="entry" placeholder="Entry 2" />
-          <input type="entry" placeholder="Entry 3" />
-          <input type="entry" placeholder="Entry 4" />
-          <input type="entry" placeholder="Entry 5" />
-          <input type="entry" placeholder="Entry 6" />
-          <input type="entry" placeholder="Entry 7" />
-          <input type="entry" placeholder="Entry 8" />
-          <input type="entry" placeholder="Entry 9" />
-          <input type="entry" placeholder="Entry 10" />
-        <div><button type="button" class="btn btn-success">Submit</button></div>
-      </form>
+        <form method="get">
+            <input class="entry" placeholder="Entry 1" />
+            <input class="entry" placeholder="Entry 2" />
+            <input class="entry" placeholder="Entry 3" />
+            <input class="entry" placeholder="Entry 4" />
+            <input class="entry" placeholder="Entry 5" />
+            <input class="entry" placeholder="Entry 6" />
+            <input class="entry" placeholder="Entry 7" />
+            <input class="entry" placeholder="Entry 8" />
+            <input class="entry" placeholder="Entry 9" />
+            <input class="entry" placeholder="Entry 10"/>
+          <div><button type="button" class="btn btn-success">Submit</button></div>
+        </form>
+      </div>
       <p>Thank you for your submission. Your answers will now be graded and checked by a third party service. </p>
     </main>
 
