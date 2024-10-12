@@ -1,3 +1,25 @@
+.category-block {
+  background-color: #c8b5db;
+  padding: 1em;
+  color: white;
+  align-items: center;
+  border-radius: 10px;
+}
+
+
+.timer {
+  margin-left: auto;
+  margin-top: 0em;
+  margin-bottom: -3em;
+  background-color: #83689d;
+  color: white;
+  padding: 0.75em;
+  border-radius: 10px;
+  float: right;
+  display: inline;
+}
+
+
 #count {
   color: rgb(246, 239, 158);
 }
