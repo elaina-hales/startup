@@ -43,8 +43,13 @@ button[class="btn btn-primary"] {
 .timer {
   margin-left: auto;
   margin-top: 0em;
-  margin-bottom: 0em;
-  text-align: right;
+  margin-bottom: -3em;
+  background-color: #83689d;
+  color: white;
+  padding: 0.75em;
+  border-radius: 10px;
+  float: right;
+  display: inline;
 }
 
 
