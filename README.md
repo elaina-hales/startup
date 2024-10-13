@@ -43,7 +43,7 @@ For this deliverable I properly styled Vocab Battle into its final appearance.
 
 - [x] **Header, footer, and main content body complete with CSS**
 - [x] **Responsive to window sizing** - My app now functions well on all devices and screen sizes.
-- [x] **Navigation elements** - I changed the way the links look and changed the color and style of the links. I also changed it so the main page is log in rather than the play page.
-- [x] **Application Elements** - I tried to use contrast and even whitespace
-- [x] **Application text content** - I used the same front throughout.
-- [x] **Application images** - I added an image to the log in page
+- [x] **Navigation elements** - I changed the way the links look and changed the color and style of the links. I also changed the navigation so the main page is log in rather than the play page.
+- [x] **Application Elements** - I tried to use contrast and even whitespace throughout.
+- [x] **Application text content** - I used the same font and styling throughout.
+- [x] **Application images** - I added an image to the log in page and updated the image in the how to page.
