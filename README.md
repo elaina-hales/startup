@@ -35,3 +35,16 @@ For this deliverable I built out the structure of my application using HTML.
 - [x] **DB/Login** - I added an input box and submit button for login, but it doesn't store itself in a database yet.
 - [x] **WebSocket** - I added a leaderboard that represents a hypothetical leaderboard. It is a placeholder.
 - [x] **Third Party Service Calls** - I added a placeholder for third party service calls that will check user's answers for validity and retrieve category of the day.
+
+
+## HTML deliverable
+
+For this deliverable I properly styled Vocab Battle into its final appearance
+
+- [x] **HTML pages** - I created four HTML pages for structure with content. They represent the main play page, the score page, the instructions page, and the leaderboard page.
+- [x] **Links** - The play page automatically links to the other pages via a menu item.
+- [x] **Interaction** - I added HTML buttons as placeholders for future interaction. Currently, they don't do anything.
+- [x] **Images** - I included an image for the instructions page, but it will need to be updated as I add the CSS and the play page looks different.
+- [x] **DB/Login** - I added an input box and submit button for login, but it doesn't store itself in a database yet.
+- [x] **WebSocket** - I added a leaderboard that represents a hypothetical leaderboard. It is a placeholder.
+- [x] **Third Party Service Calls** - I added a placeholder for third party service calls that will check user's answers for validity and retrieve category of the day.
