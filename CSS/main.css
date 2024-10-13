@@ -21,14 +21,14 @@ header {
 
 button[class="btn btn-primary"] {
   align-self: center;
-  margin-top: 0em;
+  margin-top: 1em;
   background-color: #83689d !important;
   border: #83689d;
 }
 
 button[class="btn btn-secondary"] {
   align-self: center;
-  margin-top: 0em;
+  margin-top: 1em;
   background-color: #ffffff !important;
   color:#83689d !important;
   border: #83689d !important;

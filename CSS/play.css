@@ -5,10 +5,6 @@
   text-align: center;
 }
 
-#id {
-  margin-bottom: auto;
-}
-
 .subheader {
   flex: row;
   display: flex;
@@ -27,4 +23,9 @@
 
 .entry {
   margin: 3px;
+  display: inline;
+}
+
+#button {
+  align-items: center;
 }
