@@ -5,9 +5,7 @@
 - production environment -- published environment, the one in the cloud, should be the complete version
 
 - javascript is back end code
-- caddy handles web authentication and allows us to run other services and route our requests to the right service
-- 1. serve files
-- 2. redirects web traffic 
+- caddy handles web authentication and allows us to run other services and route our requests to the right service (serve files and redirects web traffic)
 
 - user -- site -- get IP address, DNS (Route53) and talk to the server (EC2), the internet connects these
 
@@ -42,10 +40,14 @@ Port 22: resered for SSH (secure remote login and other secure network service)
 - nano - another text editor that is simpler but no modes like vim has 
 - wget - download file from the internet directly to your computer
 
+chmod +x deploy.sh makes a script executable
+
 ## HTML
 - you can use single or double quotes
+- use <html> at the top of the page to make it an html page
+- example image embed: <img src="https://www.petlandflorida.com/wp-content/uploads/2019/09/Petland_Florida_Cavalier_King_Charles_Spaniel_puppy.jpg" alt="Puppy" width="300" height="200">
 
-elements:
+### Elements:
 - body: conetnt structure
 - head: metadata about page and title
 - main: main content structure
@@ -70,7 +72,75 @@ elements:
 - iframe: inline frame of another HTML page
 - link: relationships between that HTML page and another one
 
+- by default, the span has a property of inline
+
+
 
 ## CSS:
-@import utrl('link') --> import to CSS
+- box model: margin - border - padding - content
+- use .timer for elements with class timer
+- use #timer for elements with id timer
+- p[class='summary'] as an attribute selector
+- section:hover -- when hovering change to this color
+- to ref in html, you can link to it or you can use a <style> tag
+- best way: <link rel="stylesheet" href="styles.css"/>
+
+### Commands: 
+- color: red; -- changes font to red
+- border-bottom: thin black solid;
+
+### Combinator: 
+- Descendant: body section -- any section that is a descendant of a body
+- Child: section > p, A list of direct kids, any p that is a direct child of a section
+- General Sibling: div ~ p, a list of siblings (any p with a div sibling)
+- Adjacent sibling: div + p, Any p that has an adjacent div sibling
+
+### Animation: 
+@keyframes demo {
+  from {
+    font-size: 0vh;
+  }
+
+  to {
+    font-size: 20vh;
+  }
+}
+@import url('link') --> import font to CSS
+
+@media (orientation: portrait) {
+  div {
+    transform: rotate(270deg);
+  }
+}
+
+@media tells us what side of the screen is the longest, then change div elements to reflect this
+
+### Flex:
+- display: flex; means that all kids displayed in flex flow
+- flex-direction: column; means all kids oriented in a column
+- header - flex: 0 80px - Zero means it will not grow and 80px means it has a starting basis height of 80 pixels. This creates a fixed size box.
+- footer - flex: 0 30px - Like the header it will not grow and has a height of 30 pixels.
+- main - flex: 1 - means it will get one fractional unit of growth, and since it is the only child with a non-zero growth value, it will get all the remaining space.
+- justify-content: --- the relatedness of the object
+
+
+## JavaScript
+- '' and "" work the same 
+
+## Ways to Import:
+- <script src="index.js"></script>
+
+- <script>
+    function {
+        js code
+    }
+</script>
+
+- events -- put a listener on the button for example:
+<button onclick="sayhello()">Say Hello</button>
+
+
+
+
+
 
