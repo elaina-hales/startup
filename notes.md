@@ -127,7 +127,7 @@ chmod +x deploy.sh makes a script executable
 ## JavaScript
 - '' and "" work the same 
 
-## Ways to Import:
+### Ways to Import:
 - script src="index.js">script
 
 - script
@@ -139,8 +139,191 @@ script
 - events -- put a listener on the button for example:
 button onclick="sayhello()">Say Hello > button
 
+### Equality and syntax
+- = is assignment
+- == is hand waiving equality -- fluid, 0 and false are similar DO NOT USE
+- === strict check equality 
+- very lose cases
+- ${} gives us the value of that object 
+- let x = 1 can change, const x = 1 will not
+- for in 
+const obj = { a: 1, b: 'fish' };
+for (const name in obj) {
+  console.log(name);
+}
+- for of
+const arr = ['a', 'b'];
+for (const val of arr) {
+  console.log(val);
+}
+- arrow functions-- faster was to write functions:
+standard function syntax:
+a.sort(function (v1, v2) {
+  return v1 - v2;
+});
+
+- arrow function syntax: 
+a.sort((v1, v2) => v1 - v2);
+
+- if (a === 1) {
+  //...
+} else if (b === 2) {
+  //...
+} else {
+  //...
+}
+- switch statements:
+- switch (expression) {
+    case value1:
+        // Code block to execute if expression matches value1
+        break;
+    case value2:
+        // Code block to execute if expression matches value2
+        break;
+    // You can have any number of case statements
+    default:
+        // Code block to execute if expression does not match any case
+}
+
+- while loops:
+- let i = 0;
+while (i < 2) {
+  console.log(i);
+  i++;
+}
+// OUTPUT: 0 1
+
+### JSON
+- json -- javascript object notation -- only text tho 
+- json.stingify(obj) returns a json formated object
+- JSON -- shares info across programs {"a":3, "b":"fish"}
+- convert to and from javascript using JSON.parse and JSON.stringify
+- json uses colons and double quotes only
+
+### Error Handling
+- try {
+  connectDatabase();
+  console.log('never executed');
+} catch (err) {
+  console.log(err);
+} finally {
+  console.log('always executed');
+}
+OUTPUT: Error: connection error always executed
+
+### Regex
+const objRegex = new RegExp('ab*', 'i');
+const literalRegex = /ab*/i;
+
+const petRegex = /(dog)|(cat)|(bird)/gim;
+const text = 'Both cats and dogs are pets, but not rocks.';
+
+text.match(petRegex);
+// RETURNS: ['cat', 'dog']
+
+text.replace(petRegex, 'animal');
+// RETURNS: Both animals and animals are pets, but not rocks.
+
+petRegex.test(text);
+// RETURNS: true
+
+- contained inside / / 
+- i says ignore case
+- | is or 
+
+### Maps and arrays:
+const a = [1, 2, 3];
+
+console.log(a.map((i) => i + i));
+// OUTPUT: [2,4,6]
+console.log(a.reduce((v1, v2) => v1 + v2));
+// OUTPUT: 6
+console.log(a.sort((v1, v2) => v2 - v1));
+// OUTPUT: [3,2,1]
+
+a.push(4);
+console.log(a.length);
+// OUTPUT: 4
 
 
+### The DOM, event listeners and local storage
+- document.querySelector('button') -- applies to the first button in the tree
+- document.querySelector('#button') -- must have id of button
+- the DOM is a tree representation of HTML and CSS 
+- .textContent -- sets the child text for the element 
+- event listeners listen for a click
+- you can listen for all kinds of things -- click events, text selection, keyboard, focus, clipboard, etc using addEventListener
+- local storage -- can remember things locally so if db is offline its fine
+- localStorage.setItem('user', user); -- consider using JSON to store it
+- .getItem() will then get it 
+- getElementByID("h1") - get h1 element and titleElement.textContent updates its content
+
+### Objects
+- It is possible to add new properties to javascript objects
+- creating an object:
+- const obj = new Object({ a: 3 });
+obj['b'] = 'fish';
+obj.c = [1, 2, 3];
+obj.hello = function () {
+  console.log('hello');
+};
+
+console.log(obj);
+// OUTPUT: {a: 3, b: 'fish', c: [1,2,3], hello: func}
+
+### Promises and async/await:
+- setTimeout(()=> {
+    //
+}, 5000); -- wait for 5 seconds to be called
+- pending -- running asynchronously
+- fulfilled -- completed successfully
+- rejected -- failed to complete
+- first param is what to do when it is fulfilled and the second is what to do when rejected
+- new Promise((resolve, reject)=> resolve(True))
+
+- function callback(resolve, reject) {
+    resolve('done');
+}
+
+- const p = new Promise(callback);
+
+- p.then((resolve_result) => console.log(resolve_result)) -- when it resolves, call it
 
 
+- .then -- call when it is sucessful
+- .catch -- for errors, call when error thrown
+- .finally() -- call when the whole thing is done
 
+- asynchronous -- no longer rely on an order of results 
+
+#### Async/Await:
+- try {
+    const = await tossCoin;
+} catch (err){
+
+} finally {
+    
+}
+- to use await, you use async before the function, it automatically returns a promise
+
+#### Modifying the DOM:
+- insert element:
+- function insertChild(parentSelector, text) {
+  const newChild = document.createElement('div');
+  newChild.textContent = text;
+
+  const parentElement = document.querySelector(parentSelector);
+  parentElement.appendChild(newChild);
+}
+
+insertChild('#courses', 'new course');
+
+- insert html:
+- const el = document.querySelector('div');
+el.innerHTML = '<div class="injected"><b>Hello</b>!</div>';
+
+- add listener:
+- const submitDataEl = document.querySelector('#submitData');
+submitDataEl.addEventListener('click', function (event) {
+  console.log(event.type);
+});
