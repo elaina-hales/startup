@@ -45,7 +45,7 @@ chmod +x deploy.sh makes a script executable
 ## HTML
 - you can use single or double quotes
 - use <html> at the top of the page to make it an html page
-- example image embed: <img src="https://www.petlandflorida.com/wp-content/uploads/2019/09/Petland_Florida_Cavalier_King_Charles_Spaniel_puppy.jpg" alt="Puppy" width="300" height="200">
+- example image embed: img src="https://www.petlandflorida.com/wp-content/uploads/2019/09/Petland_Florida_Cavalier_King_Charles_Spaniel_puppy.jpg" alt="Puppy" width="300" height="200"
 
 ### Elements:
 - body: conetnt structure
@@ -83,7 +83,7 @@ chmod +x deploy.sh makes a script executable
 - p[class='summary'] as an attribute selector
 - section:hover -- when hovering change to this color
 - to ref in html, you can link to it or you can use a <style> tag
-- best way: <link rel="stylesheet" href="styles.css"/>
+- best way: link rel="stylesheet" href="css doc
 
 ### Commands: 
 - color: red; -- changes font to red
@@ -128,16 +128,16 @@ chmod +x deploy.sh makes a script executable
 - '' and "" work the same 
 
 ## Ways to Import:
-- <script src="index.js"></script>
+- script src="index.js">script
 
-- <script>
+- script
     function {
         js code
     }
-</script>
+script
 
 - events -- put a listener on the button for example:
-<button onclick="sayhello()">Say Hello</button>
+button onclick="sayhello()">Say Hello > button
 
 
 
