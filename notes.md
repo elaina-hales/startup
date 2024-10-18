@@ -300,9 +300,7 @@ console.log(obj);
 - try {
     const = await tossCoin;
 } catch (err){
-
 } finally {
-    
 }
 - to use await, you use async before the function, it automatically returns a promise
 
@@ -316,11 +314,9 @@ console.log(obj);
   parentElement.appendChild(newChild);
 }
 
-insertChild('#courses', 'new course');
-
 - insert html:
 - const el = document.querySelector('div');
-el.innerHTML = '<div class="injected"><b>Hello</b>!</div>';
+el.innerHTML = 'div class="injected">b Hello< b !div';
 
 - add listener:
 - const submitDataEl = document.querySelector('#submitData');
