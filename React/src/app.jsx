@@ -1,11 +1,12 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './app.css';
+
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import { Login } from './login/login.jsx';
 import { Play } from './play/play.jsx';
 import { Scores } from './scores/scores.jsx';
 import { About } from './about/about.jsx';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'app.css';
 
 
 export default function App() {
@@ -20,7 +21,7 @@ export default function App() {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <NavLink className='nav-link' to=''>Login</NavLink>
+                <NavLink className='nav-link' to=''>Home</NavLink>
               </li>
               <li className="nav-item">
                 <NavLink className='nav-link' to='play'>Play</NavLink>
