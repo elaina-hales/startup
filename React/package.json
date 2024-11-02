@@ -1,0 +1,15 @@
+{
+  "name": "startup",
+  "version": "1.0.0",
+  "description": "## Specification Deliverable  ### Elevator Pitch Have you ever wanted to use your knowledge of vocabulary to compete against your friends and family? Have you ever wanted a fun application to help you expand your vocabulary even further? This application allows you to use your knowledge of vocabulary to come up with as many words that match the starting category in 60 seconds. Your score will then be pitted against your friends' and family's scores to determine who has the best vocabulary in that category. This fast paced game is a quick and easy way to connect with (and compete against) your friends and family each day!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^5.4.10"
+  }
+}

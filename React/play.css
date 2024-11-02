@@ -1,0 +1,31 @@
+.category-block {
+  padding: 2em;
+  color: black;
+  align-items: center;
+  text-align: center;
+}
+
+.subheader {
+  flex: row;
+  display: flex;
+  display: inline;
+}
+
+.timer {
+  margin-left: auto;
+  margin-top: 0em;
+  border-width: 1em;
+  background-color: #83689d;
+  color: white;
+  padding: 0.75em;
+  text-align: center;
+}
+
+.entry {
+  margin: 3px;
+  display: inline;
+}
+
+#button {
+  align-items: center;
+}
