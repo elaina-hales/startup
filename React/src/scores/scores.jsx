@@ -4,10 +4,10 @@ import './scores.css';
 
 export function Login() {
   return (
-    <main class="text-center">
+    <main className="text-center">
       <h2>Leaderboard</h2>
-      <table class="table table-columns">
-        <thead class="table-light">
+      <table className="table table-columns">
+        <thead className="table-light">
           <tr>
             <th>Place</th>
             <th>Name</th>
