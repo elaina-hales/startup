@@ -6,12 +6,12 @@ import { Play } from './play/play.jsx';
 import { Scores } from './scores/scores.jsx';
 import { About } from './about/about.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'app.css';
+import './app.css'
 
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter className='y'>
       <nav className="body navbar navbar-expand-lg bg-light">
         <div className="container-fluid">
           <a className="navbar-brand" href="index.html">Vocab Battle</a>
