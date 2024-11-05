@@ -1,8 +1,7 @@
-App {
+.body {
   display: flex;
   flex-direction: column;
   min-width: 375px;
-  height: 80vh;
 }
 
 main {
@@ -14,10 +13,10 @@ main {
   padding: 1em;
 }
 
-header {
+/* header {
   flex: 0 50px;
   margin-top: 2em;
-}
+} */
 
 button[class="btn btn-primary"] {
   align-self: center;
