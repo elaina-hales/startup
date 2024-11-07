@@ -1,5 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Play } from './play/play.jsx';
 
 export function Login() {
   return (
@@ -8,7 +9,7 @@ export function Login() {
         <img src="VBicon.png" alt="Vocab Battle"/>
         <h1>Welcome to Vocab Battle</h1>
         <p>To save your score, sign in below:</p>
-        <form method="get" action="play.html">
+        <form method="get">
           <div className="input-group mb-3">
             <span className="input-group-text">@</span>
             <input type="text" className="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"/>
