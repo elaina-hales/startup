@@ -13,7 +13,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <div className="body">
-        <nav className="body navbar navbar-expand-lg bg-light">
+        <nav className="navbar navbar-expand-lg bg-light">
           <div className="container-fluid">
             <a className="navbar-brand" href="index.html">Vocab Battle</a>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,10 +47,8 @@ export default function App() {
         </Routes>
 
         <footer>
-          <div className='container-fluid'>
             <span className="text-reset">Created by Elaina Hales</span>
             <a href="https://github.com/elaina-hales/startup">GitHub</a>
-          </div>
         </footer>
       </div>
     </BrowserRouter>

@@ -8,9 +8,8 @@ td {
 }
 
 th {
-  border: 1px solid black;
   background-color: #83689d !important;
-  color: white;
+  color: white !important;
 }
 
 table {
