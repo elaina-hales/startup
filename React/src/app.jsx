@@ -12,44 +12,48 @@ import './app.css';
 export default function App() {
   return (
     <BrowserRouter>
+      <div className="body">
         <nav className="body navbar navbar-expand-lg bg-light">
-          <header className="container-fluid">
+          <div className="container-fluid">
             <a className="navbar-brand" href="index.html">Vocab Battle</a>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse" id="navbarNav">
-              <ul className="navbar-nav">
-                <li className="nav-item">
-                  <NavLink className='nav-link' to=''>Home</NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink className='nav-link' to='play'>Play</NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink className='nav-link' to='scores'>Scores</NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink className='nav-link' to='about'>About</NavLink>
-                </li>
-              </ul>
+                <ul className="navbar-nav">
+                  <li className="nav-item">
+                    <NavLink className='nav-link' to=''>Home</NavLink>
+                  </li>
+                  <li className="nav-item">
+                    <NavLink className='nav-link' to='play'>Play</NavLink>
+                  </li>
+                  <li className="nav-item">
+                    <NavLink className='nav-link' to='scores'>Scores</NavLink>
+                  </li>
+                  <li className="nav-item">
+                    <NavLink className='nav-link' to='about'>About</NavLink>
+                  </li>
+                </ul>
             </div>
-          </header>
+          </div>
         </nav>
 
-      <Routes>
-        <Route path='/' element={<Login />} exact />
-        <Route path='/play' element={<Play />} />
-        <Route path='/scores' element={<Scores />} />
-        <Route path='/about' element={<About />} />
-        <Route path='*' element={<NotFound />} />
-      </Routes>
+        <Routes>
+          <Route path='/' element={<Login />} exact />
+          <Route path='/play' element={<Play />} />
+          <Route path='/scores' element={<Scores />} />
+          <Route path='/about' element={<About />} />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
 
-      <footer>
-        <span className="text-reset">Created by Elaina Hales</span>
-        <a href="https://github.com/elaina-hales/startup">GitHub</a>
-      </footer>
-  </BrowserRouter>
+        <footer>
+          <div className='container-fluid'>
+            <span className="text-reset">Created by Elaina Hales</span>
+            <a href="https://github.com/elaina-hales/startup">GitHub</a>
+          </div>
+        </footer>
+      </div>
+    </BrowserRouter>
   );
 }
 
