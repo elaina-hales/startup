@@ -4,6 +4,7 @@ import { Login } from './login/login.jsx';
 import { Play } from './play/play.jsx';
 import { Scores } from './scores/scores.jsx';
 import { About } from './about/about.jsx';
+import { AuthState } from './login/authState';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
 
@@ -46,9 +47,7 @@ function App() {
         </nav>
 
         <Routes>
-        <Route
-            path='/'
-            element={
+        <Route path='/' element={
               <Login
                 userName={userName}
                 authState={authState}
@@ -57,9 +56,7 @@ function App() {
                   setUserName(userName);
                 }}
               />
-            }
-            exact
-          />
+            } exact />
           <Route path='/play' element={<Play />} />
           <Route path='/scores' element={<Scores />} />
           <Route path='/about' element={<About />} />
