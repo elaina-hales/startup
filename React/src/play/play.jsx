@@ -1,6 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './play.css';
+import Timer from './timer.jsx';
 
 export function Play() {
   return (
@@ -8,7 +9,7 @@ export function Play() {
       <main>
         <div>
           <div className='subheader'>
-            <p className="timer">Timer: 0:30</p>
+            <div className='timer'><Timer/></div>
             <div className="category-block">
               <p>Today's Category:</p>
               <h2 id="category">Fast Food Places</h2>
