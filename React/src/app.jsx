@@ -6,6 +6,7 @@ import { Scores } from './scores/scores.jsx';
 import { About } from './about/about.jsx';
 import { AuthState } from './login/authState';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './app.css';
 
 
@@ -32,12 +33,12 @@ function App() {
                     <li className="nav-item">
                       <NavLink className='nav-link' to='play'>Play</NavLink>
                     </li>
-                  )};
+                  )}
                   {authState === AuthState.Authenticated && (
                     <li className="nav-item">
                       <NavLink className='nav-link' to='scores'>Scores</NavLink>
                     </li>
-                  )};
+                  )}
                   <li className="nav-item">
                     <NavLink className='nav-link' to='about'>About</NavLink>
                   </li>
@@ -67,6 +68,11 @@ function App() {
             <span className="text-reset">Created by Elaina Hales</span>
             <a href="https://github.com/elaina-hales/startup">GitHub</a>
         </footer>
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+          crossorigin="anonymous"
+        ></script>
       </div>
     </BrowserRouter>
   );
