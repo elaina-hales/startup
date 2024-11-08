@@ -1,9 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 
 export default function Timer(){
+    const navigate = useNavigate();
     const [timerValue, setTimerValue] = useState('');
 
-    let totalTime = 20;
+    let totalTime = 5;
 
     const computeTimerValue = () => {
         if(totalTime >= 11) {
@@ -13,7 +16,7 @@ export default function Timer(){
             totalTime = totalTime - 1;
             return "00:0" + totalTime;
         } else {
-            return "00:00";
+            navigate('/about');
         }
     };
 
