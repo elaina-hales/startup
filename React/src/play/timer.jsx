@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -6,7 +6,7 @@ export default function Timer(){
     const navigate = useNavigate();
     const [timerValue, setTimerValue] = useState('');
 
-    let totalTime = 5;
+    let totalTime = 30;
 
     const computeTimerValue = () => {
         if(totalTime >= 11) {

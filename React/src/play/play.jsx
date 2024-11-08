@@ -2,6 +2,8 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './play.css';
 import Timer from './timer.jsx';
+import NewEntry from './newEntry.jsx';
+
 
 export function Play() {
   return (
@@ -9,25 +11,14 @@ export function Play() {
       <main>
         <div>
           <div className='subheader'>
-            <div className='timer'><Timer/></div>
+            <div className='timer'>*****</div>
             <div className="category-block">
               <p>Today's Category:</p>
               <h2 id="category">Fast Food Places</h2>
             </div>
-            <form method="get">
-                <input className="entry" placeholder="Entry 1" />
-                <input className="entry" placeholder="Entry 2" />
-                <input className="entry" placeholder="Entry 3" />
-                <input className="entry" placeholder="Entry 4" />
-                <input className="entry" placeholder="Entry 5" />
-                <input className="entry" placeholder="Entry 6" />
-                <input className="entry" placeholder="Entry 7" />
-                <input className="entry" placeholder="Entry 8" />
-                <input className="entry" placeholder="Entry 9" />
-                <input className="entry" placeholder="Entry 10"/>
-              <div className="container-fluid text-center">
-                <button type="button" className="btn btn-primary">Submit</button>
-              </div>
+            <form>
+                <NewEntry/>
+                <button className="btn btn-primary">Submit</button>
             </form>
           </div>
       </div>
@@ -36,3 +27,6 @@ export function Play() {
     </div>
   );
 }
+
+
+{/* <Timer/> */}

@@ -17,7 +17,7 @@ export function Authenticated(props) {
     <div>
       <div className='playerName'>@ {props.userName}</div>
       <button className="btn btn-primary" onClick={() => navigate('/play')}>
-        Play
+        Begin game
       </button>
       <button className="btn btn-secondary" onClick={() => logout()}>
         Logout
