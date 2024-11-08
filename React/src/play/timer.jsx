@@ -1,19 +1,28 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 export default function Timer(){
-    const Ref = useRef(null);
+    const [timerValue, setTimerValue] = useState('');
 
-    const [timerValue, setTimerValue] = useState('00:00');
+    let totalTime = 20;
 
     const computeTimerValue = () => {
-        return '00:00';
+        if(totalTime >= 11) {
+            totalTime = totalTime - 1;
+            return "00:" + totalTime;
+        } else if (totalTime != 0){
+            totalTime = totalTime - 1;
+            return "00:0" + totalTime;
+        } else {
+            return "00:00";
+        }
     };
 
     useEffect(() => {
-        const value = computeTimerValue();
-        setTimerValue(value);
+        setInterval(() => {
+            setTimerValue(computeTimerValue());
+        }, 1000);
+
     }, []);
 
     return (<p className='timer'>Timer: {timerValue}</p>);
 }
-
