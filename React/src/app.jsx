@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import { Login } from './login/login.jsx';
 import { Play } from './play/play.jsx';
