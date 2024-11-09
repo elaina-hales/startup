@@ -1,26 +1,28 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, forwardRef, useImperativeHandle, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Timer from './timer.jsx';
+import './play.css';
 
-
-export default function Submit(){
-    const [inputValue, setInputValue] = useState('');
+const Submit = forwardRef((props, ref) => {
     const [isDisabled, setIsDisabled] = useState(false);
 
-    const handleInputChange = (event) => {
-        setInputValue(event.target.value);
-        if (Timer() === "00:00"){
-            setIsDisabled(isDisabled ? 'Enable' : 'Disable');
-            console.log(valRef.current.value)
+    const disable = () =>{
+        setIsDisabled(true)
+    }
+
+    useImperativeHandle(ref, () => {
+        return {
+            disable,
         }
-    };
+    });
 
     return (
         <form>
-            <input type="text" value={inputValue} onChange={handleInputChange} disabled={isDisabled}/>
+            <input type="text" disabled={isDisabled}/>
         </form>
       );
-}
+});
+
+export default Submit;
 
 // <input className="entry" value={formData}/><input className="entry" value={formData}/><input className="entry" value={formData}/><input className="entry" value={formData}/>
 
