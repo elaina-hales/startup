@@ -2,18 +2,38 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-export default function NewEntry(){
-    const [entries, setEntries] = useState('');
+export default function GetEntry(){
+    const [name, setName] = useState("");
 
-    let c_entries = [<p>1</p>, <p>2</p>, <p>3</p>, <p>4</p>, <p>5</p>];
-
-    const keydown = () => {
-        c_entries.append(<input className='entry' onClick={keydown}/>);
-    };
-
-    useEffect(() =>{
-        setEntries(c_entries);
-    }, []);
-
-    return (<div><input className='entry' onKeyDown={keydown}/>{entries}</div>);
+    let initialValues = {}
+    // let elements = document.getElementsByClassName("entry")
+    // let arr = [].slice.call(elements);
+    return (
+      <div className="App">
+        <div class="inputfield">
+          <label>Campaign Name</label>
+          <input type='text' required maxLength='20' onChange={setName()} className="input"/>
+        </div>
+      </div>
+    );
 }
+
+    // let c_entries = [];
+
+    // const keydown = () => {
+    // };
+
+    // console.log(document.getElementsByClassName("entry"));
+    //convert the above to an array then run the for each on it ^
+    //     if (e.key === 'Enter' || e.keyCode === 13) {
+    //         c_entries.append(<input className='entry'/>);
+    //     }
+    // };
+
+    // useEffect(() =>{
+    //     setEntries(c_entries);
+    // }, []);
+
+{/* <div><input className='entry'/>{entries}</div> */}
+
+// forEach(element => element.on('keyup', function (e) {
