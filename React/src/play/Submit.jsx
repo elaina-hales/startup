@@ -1,4 +1,4 @@
-import React, { useState, forwardRef, useImperativeHandle, useEffect } from 'react';
+import React, { useState, forwardRef, useImperativeHandle } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './play.css';
 
@@ -17,7 +17,24 @@ const Submit = forwardRef((props, ref) => {
 
     return (
         <form>
-            <input type="text" disabled={isDisabled}/>
+            <input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/>
+            <input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/>
+            <input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/>
+            <input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/>
+            <input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/>
+            <input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/>
+            <input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/>
+            <input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/>
+            <input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/>
+            <input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/>
+            <input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/>
+            <input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/>
+            <input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/>
+            <input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/>
+            <input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/>
+            <input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/>
+            <input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/>
+            <input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/>
         </form>
       );
 });
