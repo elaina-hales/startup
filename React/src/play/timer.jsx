@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function Timer(){
     const [timerValue, setTimerValue] = useState('');
-    const formRef = useRef(null);
 
     let totalTime = 5;
 
@@ -14,7 +13,6 @@ export default function Timer(){
             totalTime = totalTime - 1;
             return "00:0" + totalTime;
         } else {
-            formRef.current.requestSubmit(); 
             return "00:00";
         }
     };
@@ -24,7 +22,9 @@ export default function Timer(){
             setTimerValue(computeTimerValue());
         }, 1000);
 
-    }, []);
+    }, []); 
 
     return timerValue;
 }
+
+

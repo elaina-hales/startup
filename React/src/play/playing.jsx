@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Timer from './timer.jsx';
-import GetEntry from './newEntry.jsx';
+import Submit from './Submit.jsx';
 
 
 export default function Playing() {
@@ -16,7 +16,7 @@ export default function Playing() {
             </div>
             <p>Thank you for your submission. Your answers will now be graded and checked by a third party service. </p>
             <div style={{ height: '200px', overflow: 'auto' }}> 
-              <p><GetEntry/></p>
+              <Submit/>
             </div>
           </div>
       </main>
@@ -26,31 +26,13 @@ export default function Playing() {
       <main>
         <div>
           <div className='subheader'>
-          <p className='timer'>Timer: <Timer/></p>            
-          <div className="category-block">
+            <p className='timer'>Timer: <Timer/></p>            
+            <div className="category-block">
               <p>Today's Category:</p>
               <h2 id="category">Fast Food Places</h2>
             </div>
-            <form onSubmit={GetEntry()}>
-              <div style={{ height: '200px', overflow: 'auto' }}> 
-                <input className="entry"/><input className="entry"/><input className="entry"/><input className="entry"/>
-                <input className="entry"/><input className="entry"/><input className="entry"/><input className="entry"/>
-                <input className="entry"/><input className="entry"/><input className="entry"/><input className="entry"/>
-                <input className="entry"/><input className="entry"/><input className="entry"/><input className="entry"/>
-                <input className="entry"/><input className="entry"/><input className="entry"/><input className="entry"/>
-                <input className="entry"/><input className="entry"/><input className="entry"/><input className="entry"/>
-                <input className="entry"/><input className="entry"/><input className="entry"/><input className="entry"/>
-                <input className="entry"/><input className="entry"/><input className="entry"/><input className="entry"/>
-                <input className="entry"/><input className="entry"/><input className="entry"/><input className="entry"/>
-                <input className="entry"/><input className="entry"/><input className="entry"/><input className="entry"/>
-                <input className="entry"/><input className="entry"/><input className="entry"/><input className="entry"/>
-                <input className="entry"/><input className="entry"/><input className="entry"/><input className="entry"/>
-                <input className="entry"/><input className="entry"/><input className="entry"/><input className="entry"/>
-                <input className="entry"/><input className="entry"/><input className="entry"/><input className="entry"/>
-              </div>
-            </form>
           </div>
-          <button className="btn btn-primary">Submit</button>
+          <Submit/>
         </div>
       </main>
     )
