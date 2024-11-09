@@ -1,6 +1,5 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './play.css';
 import Timer from './timer.jsx';
 import GetEntry from './newEntry.jsx';
 
@@ -32,7 +31,7 @@ export default function Playing() {
               <p>Today's Category:</p>
               <h2 id="category">Fast Food Places</h2>
             </div>
-            <form onSubmit={GetEntry()}>
+            <form ref={formRef} onSubmit={GetEntry()}>
               <div style={{ height: '200px', overflow: 'auto' }}> 
                 <input className="entry"/><input className="entry"/><input className="entry"/><input className="entry"/>
                 <input className="entry"/><input className="entry"/><input className="entry"/><input className="entry"/>

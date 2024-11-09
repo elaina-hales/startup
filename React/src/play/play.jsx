@@ -11,6 +11,3 @@ export function Play() {
     </div>
   );
 }
-
-
-{/* <Timer/> */}
