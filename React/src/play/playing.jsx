@@ -31,7 +31,7 @@ export default function Playing() {
               <p>Today's Category:</p>
               <h2 id="category">Fast Food Places</h2>
             </div>
-            <form ref={formRef} onSubmit={GetEntry()}>
+            <form onSubmit={GetEntry()}>
               <div style={{ height: '200px', overflow: 'auto' }}> 
                 <input className="entry"/><input className="entry"/><input className="entry"/><input className="entry"/>
                 <input className="entry"/><input className="entry"/><input className="entry"/><input className="entry"/>
