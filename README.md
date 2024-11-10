@@ -60,5 +60,5 @@ For this deliverable I used JavaScript and React so that the application almost 
     - [x] Play - The usability for the play page is complete.
     - [x] About - The about page is complete.
     - [x] Header/footer - These are complete, with the hamburger menu fully functional now.
-- [x] Router - Routing between login, play, scores components.
-- [x] Hooks - They are used throughout the app to check on and update the status of the play and login pages.
+- [x] **Router** - Routing between login, play, scores components.
+- [x] **Hooks** - They are used throughout the app to check on and update the status of the play and login pages.
