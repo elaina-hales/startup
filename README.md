@@ -47,3 +47,18 @@ For this deliverable I properly styled Vocab Battle into its final appearance.
 - [x] **Application Elements** - I tried to use contrast and even whitespace throughout.
 - [x] **Application text content** - I used the same font and styling throughout.
 - [x] **Application images** - I added an image to the log in page and updated the image in the how to page.
+
+
+## React Deliverable
+
+For this deliverable I used JavaScript and React so that the application almost entirely works for a single user. I also added placeholders for future technology.
+
+- [x] **Bundled and transpiled** - done!
+- [x] **Components** - Login, about, and play are all complete components with mocks for login, WebSocket.
+    - [x] Login - When you press enter or the login button it takes you to an option to go to the play page.
+    - [ ] Scores - I am still working on updating the Scores page accordingly.
+    - [x] Play - The usability for the play page is complete.
+    - [x] About - The about page is complete.
+    - [x] Header/footer - These are complete, with the hamburger menu fully functional now.
+- [x] Router - Routing between login, play, scores components.
+- [x] Hooks - They are used throughout the app to check on and update the status of the play and login pages.
