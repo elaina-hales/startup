@@ -13,7 +13,7 @@ export function Play(props) {
 
   const [timerValue, setTimerValue] = useState('');
 
-  let totalTime = 5;
+  let totalTime = 30;
 
   const computeTimerValue = () => {
         if(totalTime >= 11) {
