@@ -16,9 +16,9 @@ const Submit = forwardRef((props, ref) => {
     });
 
     return (
-        <form>
-            <input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/>
-            <input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/>
+        <form className='entry'>
+            <input className='entry' id='1' disabled={isDisabled}/><input className='entry' id='2' disabled={isDisabled}/><input className='entry' id='3' disabled={isDisabled}/><input className='entry' id='4'disabled={isDisabled}/>
+            <input className='entry' id='5' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/>
             <input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/>
             <input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/>
             <input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/><input className='entry' disabled={isDisabled}/>
@@ -40,58 +40,3 @@ const Submit = forwardRef((props, ref) => {
 });
 
 export default Submit;
-
-// <input className="entry" value={formData}/><input className="entry" value={formData}/><input className="entry" value={formData}/><input className="entry" value={formData}/>
-
-// let initialValues = {}
-
-// let elements = document.getElementsByClassName("entry")
-    // let arr = [].slice.call(elements);
-
-    // let c_entries = [];
-
-    // const keydown = () => {
-    // };
-
-    // console.log(document.getElementsByClassName("entry"));
-    //convert the above to an array then run the for each on it ^
-    //     if (e.key === 'Enter' || e.keyCode === 13) {
-    //         c_entries.append(<input className='entry'/>);
-    //     }
-    // };
-
-    // useEffect(() =>{
-    //     setEntries(c_entries);
-    // }, []);
-
-{/* <div><input className='entry'/>{entries}</div> */}
-
-// forEach(element => element.on('keyup', function (e) {
-
-// const formRef = useRef(null);
-
-    // const handleSubmit = (event) => {
-    //     if (Timer() === "00:00") {
-    //         // formRef.current.submit();
-    //         console.log(formData); 
-    //     }
-    // };
-    
-    // const handleChange = (e) => {
-    //     const val = e.target;
-    //     setFormData(prevState => ({
-    //         ...prevState,
-    //         val,
-    //       }));
-    // };
-
-    // useEffect(() => {
-    //     // const timeoutId = setTimeout(() => {
-    //     //   if (formRef.current) {
-    //     //     formRef.current.submit();
-    //     //   }
-    //     // }, 5000); // 5 seconds timeout
-    
-    //     // return () => clearTimeout(timeoutId); // Clear timeout on unmount
-    //   }, []);
-    

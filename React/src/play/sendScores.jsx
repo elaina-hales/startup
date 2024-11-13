@@ -1,7 +1,9 @@
 import React from 'react';
 
-export default function sendScore(score) {
+export default function sendScore(props) {
+    const userName = props.userName;
     saveScore(score);
+
 
     async function saveScore(score) {
         const newScore = { name: userName, score: score, };
