@@ -4,8 +4,8 @@ import './play.css';
 
 export function Play(props) {
   const userName = props.userName;
-  const [inputValues, setInputValues] = useState(['', '', '', '','', '', '', '','', '', '', '','', '', '', '','', '', '', '','', '', '', '']);
-  const [totalTime, setTotalTime] = useState(10);
+  const [inputValues, setInputValues] = useState(['', '', '', '','', '', '', '','', '', '', '','', '', '', '','', '', '', '','', '', '', '','', '', '','', '', '', '','', '', '', '','', '', '','', '', '', '','', '', '', '']);
+  const [totalTime, setTotalTime] = useState(30);
   const [filledFieldsData, setFilledFieldsData] = useState([]);
   const [finished, setFinished] = useState(false);
   const [timerValue, setTimerValue] = useState('');
