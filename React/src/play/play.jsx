@@ -3,45 +3,55 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './play.css';
 
 export function Play(props) {
-  const [isDisabled, setIsDisabled] = useState(false);
   const userName = props.userName;
-  const [timerValue, setTimerValue] = useState('');
-  let totalTime = 10;
-  let finished = false;
-  let score = 0;
-
   const [inputValues, setInputValues] = useState(['', '', '', '']);
   const [filledFieldsCount, setFilledFieldsCount] = useState(0);
+  const [totalTime, setTotalTime] = useState(10);
   const [filledFieldsData, setFilledFieldsData] = useState([]);
+  const [finished, setFinished] = useState(false);
+  const [timerValue, setTimerValue] = useState('');
+  const [isDisabled, setIsDisabled] = useState(false);
+  let newTotalTime = totalTime;
+
 
   const handleInputChange = (e, index) => {
     const { value } = e.target;
-    setInputValues((prevValues) =>
-      prevValues.map((val, i) => (i === index ? value : val))
-    );
-    countFilledFields();
+    setInputValues((prevValues) => {
+      const newValues = prevValues.map((val, i) => (i === index ? value : val));
+      return newValues;
+    });
   };
 
   const countFilledFields = () => {
-    const filled = Object.entries(inputValues).filter(([_, value]) => value);
+    let filled = inputValues.filter(value => value.trim() !== '');
     setFilledFieldsCount(filled.length);
     setFilledFieldsData(filled);
+    return filled.length;
   };
 
   const computeTimerValue = () => {
-    if(totalTime >= 11) {
-        totalTime = totalTime - 1;
-        return "00:" + totalTime;
-    } else if (totalTime != 0){
-        totalTime = totalTime - 1;
-        return "00:0" + totalTime;
-    } else if (totalTime === 0 && finished === false){
-        finished = true;
-        setIsDisabled(true);
-        saveScore(10);
-        return "00:00";
+    if (totalTime > 0){
+      newTotalTime = totalTime - 1;
     }
+    if (newTotalTime === 0 && finished === false) {
+      setFinished(true);
+      setIsDisabled(true);
+      console.log(inputValues);
+      saveScore(countFilledFields());
+      return "00:00";
+    }
+    setTotalTime(newTotalTime);
+    return newTotalTime >= 10 ? `00:${newTotalTime}` : `00:0${newTotalTime}`;
   };
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setTimerValue(computeTimerValue());
+    }, 1000);
+
+    return () => clearInterval(intervalId);
+  }, [totalTime, finished]);
+
 
   async function saveScore(score) {
     const newScore = { name: userName, score: score};
@@ -75,12 +85,6 @@ export function Play(props) {
     localStorage.setItem('scores', JSON.stringify(scores));
   }
 
-  useEffect(() => {
-    setInterval(() => {
-      setTimerValue(computeTimerValue());
-    }, 1000);
-  }, []); 
-
   return (
     <div className='body'>
         <main>
@@ -91,7 +95,7 @@ export function Play(props) {
               <h2 id="category">Fast Food Places</h2>
             </div>
             <div style={{ height: '200px', overflow: 'auto' }}> 
-              {inputValues.map(( value, index ) => (<input key={index} type="text" value={value} onChange={(e) => handleInputChange(e, index)}/>))}
+              {inputValues.map(( value, index ) => (<input key={index} type="text" value={value} disabled={isDisabled} onChange={(e) => handleInputChange(e, index)}/>))}
             </div>
             <p>{filledFieldsCount}</p>
             <p>{filledFieldsData}</p>
