@@ -4,12 +4,29 @@ import './play.css';
 
 export function Play(props) {
   const [isDisabled, setIsDisabled] = useState(false);
-  const childRef = useRef();
   const userName = props.userName;
   const [timerValue, setTimerValue] = useState('');
-  let totalTime = 5;
+  let totalTime = 10;
   let finished = false;
-  let c_score = 0;
+  let score = 0;
+
+  const [inputValues, setInputValues] = useState(['', '', '', '']);
+  const [filledFieldsCount, setFilledFieldsCount] = useState(0);
+  const [filledFieldsData, setFilledFieldsData] = useState([]);
+
+  const handleInputChange = (e, index) => {
+    const { value } = e.target;
+    setInputValues((prevValues) =>
+      prevValues.map((val, i) => (i === index ? value : val))
+    );
+    countFilledFields();
+  };
+
+  const countFilledFields = () => {
+    const filled = Object.entries(inputValues).filter(([_, value]) => value);
+    setFilledFieldsCount(filled.length);
+    setFilledFieldsData(filled);
+  };
 
   const computeTimerValue = () => {
     if(totalTime >= 11) {
@@ -21,20 +38,10 @@ export function Play(props) {
     } else if (totalTime === 0 && finished === false){
         finished = true;
         setIsDisabled(true);
-        // for(let i = 0; i < 5; i++){
-        //   let text = document.getElementById(`${i}`);
-        //   if(text.value() != null){
-        //     c_score++;
-        //   }
-        // }
-        saveScore(c_score);
+        saveScore(10);
         return "00:00";
     }
   };
-
-  const incScore = () => {
-    c_score++;
-  }
 
   async function saveScore(score) {
     const newScore = { name: userName, score: score};
@@ -68,13 +75,11 @@ export function Play(props) {
     localStorage.setItem('scores', JSON.stringify(scores));
   }
 
-
   useEffect(() => {
     setInterval(() => {
       setTimerValue(computeTimerValue());
     }, 1000);
   }, []); 
-
 
   return (
     <div className='body'>
@@ -86,10 +91,11 @@ export function Play(props) {
               <h2 id="category">Fast Food Places</h2>
             </div>
             <div style={{ height: '200px', overflow: 'auto' }}> 
-            <input className='entry' id='1' disabled={isDisabled} onChange={incScore()}/><input className='entry' id='2' onChange={incScore()} disabled={isDisabled}/><input className='entry' onChange={incScore()} id='3' disabled={isDisabled}/><input className='entry' onChange={incScore()} id='4'disabled={isDisabled}/>
-            <input className='entry' id='5' onChange={incScore()} disabled={isDisabled}/>
+              {inputValues.map(( value, index ) => (<input key={index} type="text" value={value} onChange={(e) => handleInputChange(e, index)}/>))}
             </div>
-            <p id='message'></p>
+            <p>{filledFieldsCount}</p>
+            <p>{filledFieldsData}</p>
+            <p>{inputValues}</p>
           </div>
       </main>
     </div>
