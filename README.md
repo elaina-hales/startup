@@ -56,7 +56,7 @@ For this deliverable I used JavaScript and React so that the application almost 
 - [x] **Bundled and transpiled** - done!
 - [x] **Components** - Login, about, and play are all complete components with mocks for login, WebSocket.
     - [x] Login - When you press enter or the login button it takes you to an option to go to the play page.
-    - [ ] Scores - I am still working on updating the Scores page accordingly.
+    - [x] Scores - The scores page updates according to the score you get with you play. 
     - [x] Play - The usability for the play page is complete.
     - [x] About - The about page is complete.
     - [x] Header/footer - These are complete, with the hamburger menu fully functional now.
