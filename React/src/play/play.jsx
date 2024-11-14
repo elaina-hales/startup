@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './play.css';
 
 export function Play(props) {
   const userName = props.userName;
-  const [inputValues, setInputValues] = useState(['', '', '', '']);
-  const [filledFieldsCount, setFilledFieldsCount] = useState(0);
+  const [inputValues, setInputValues] = useState(['', '', '', '','', '', '', '','', '', '', '','', '', '', '','', '', '', '','', '', '', '']);
   const [totalTime, setTotalTime] = useState(10);
   const [filledFieldsData, setFilledFieldsData] = useState([]);
   const [finished, setFinished] = useState(false);
@@ -24,7 +23,6 @@ export function Play(props) {
 
   const countFilledFields = () => {
     let filled = inputValues.filter(value => value.trim() !== '');
-    setFilledFieldsCount(filled.length);
     setFilledFieldsData(filled);
     return filled.length;
   };
@@ -36,7 +34,6 @@ export function Play(props) {
     if (newTotalTime === 0 && finished === false) {
       setFinished(true);
       setIsDisabled(true);
-      console.log(inputValues);
       saveScore(countFilledFields());
       return "00:00";
     }
@@ -95,11 +92,8 @@ export function Play(props) {
               <h2 id="category">Fast Food Places</h2>
             </div>
             <div style={{ height: '200px', overflow: 'auto' }}> 
-              {inputValues.map(( value, index ) => (<input key={index} type="text" value={value} disabled={isDisabled} onChange={(e) => handleInputChange(e, index)}/>))}
+              {inputValues.map(( value, index ) => (<input key={index} type="text" class='entry' value={value} disabled={isDisabled} onChange={(e) => handleInputChange(e, index)}/>))}
             </div>
-            <p>{filledFieldsCount}</p>
-            <p>{filledFieldsData}</p>
-            <p>{inputValues}</p>
           </div>
       </main>
     </div>
