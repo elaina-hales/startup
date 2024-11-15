@@ -6,21 +6,22 @@ import getWord from './getCategory.jsx';
 export function Play(props) {
   
   const userName = props.userName;
-  const [inputValues, setInputValues] = useState(['', '', '', '','', '', '', '','', '', '', '','', '', '', '','', '', '', '','', '', '', '','', '', '','', '', '', '','', '', '', '','', '', '','', '', '', '','', '', '', '']);
-  const [totalTime, setTotalTime] = useState(5);
+  const [inputValues, setInputValues] = useState(['', '', '', '','', '', '', '','', '', '', '','', '', '', '','', '', '', '','', '', '', '']);
+  const [totalTime, setTotalTime] = useState(15);
   const [filledFieldsData, setFilledFieldsData] = useState([]);
   const [finished, setFinished] = useState(false);
   const [timerValue, setTimerValue] = useState('');
   const [isDisabled, setIsDisabled] = useState(false);
   const [message, setMessage] = useState('');
   const [category, setCategory] = useState('');
+  const [resultsList, setResultsList] = useState([]);
+
   let newTotalTime = totalTime;
-  let randomWord = '';
+  const results_lst = [];
 
 // -----------------------------------------------------FETCH REQUESTS----------------------------------------------------
 
   const getSyn = () => {
-    console.log(category)
     fetch(`https://api.api-ninjas.com/v1/thesaurus?word=${category}`, {method: 'GET', 
       headers: {
         'x-api-key': 'S3GJvoBwOqtOpm+vxO/xNA==dSnhCQpzwX7LQBW0'
@@ -28,14 +29,21 @@ export function Play(props) {
       .then((response) => response.json())
       .then((data) => {
         const synonyms = data.synonyms;
-        console.log(synonyms);
-        setCategory(randomWord);
+        inputValues.forEach((i) => {
+          if (i !== '') {
+            const exists = synonyms.includes(i);
+            results_lst.push({ input: i, exists: exists });
+          }
+        });
         return synonyms;
       })
-      .catch();
+      .catch((error) => {
+        console.error('Error fetching synonyms:', error);
+      });
   };
 
 // -----------------------------------------------------UPDATE STATE----------------------------------------------------
+
   const handleInputChange = (e, index) => {
     const { value } = e.target;
     setInputValues((prevValues) => {
@@ -54,10 +62,11 @@ export function Play(props) {
     if (totalTime > 0){
       newTotalTime = totalTime - 1;
     }
-    if (newTotalTime === 0 && finished === false) {
+    if (newTotalTime === 0 && finished === false){
       setFinished(true);
       setIsDisabled(true);
       saveScore(countFilledFields());
+      getSyn();
       setMessage("Your answers have been submitted.")
       return "00:00";
     }
@@ -74,7 +83,7 @@ export function Play(props) {
   }, [totalTime, finished]);
 
   useEffect(() => {
-      setCategory(getWord);
+    setCategory(getWord);
   }, []);
   
 // -----------------------------------------------------SAVE SCORE----------------------------------------------------
@@ -123,6 +132,11 @@ export function Play(props) {
               {inputValues.map(( value, index ) => (<input key={index} type="text" className='entry' value={value} disabled={isDisabled} onChange={(e) => handleInputChange(e, index)}/>))}
             </div>
             <p>{message}</p>
+            <div>
+              <div>
+                {resultsList}
+              </div>
+            </div>
           </div>
       </main>
     </div>

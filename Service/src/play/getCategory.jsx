@@ -11,7 +11,7 @@ export default function getWord() {
         'funny', 'serious', 'warm', 'wide', 'narrow', 'calm', 'nervous',
         'old', 'closed']
     
-    const randomIndex = Math.floor(Math.random() * data.length);
+    const randomIndex = Math.floor(Math.random() * categories.length);
 
     let randomWord = categories[randomIndex];
     return randomWord;
