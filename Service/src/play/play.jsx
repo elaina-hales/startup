@@ -3,16 +3,39 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './play.css';
 
 export function Play(props) {
+  
   const userName = props.userName;
   const [inputValues, setInputValues] = useState(['', '', '', '','', '', '', '','', '', '', '','', '', '', '','', '', '', '','', '', '', '','', '', '','', '', '', '','', '', '', '','', '', '','', '', '', '','', '', '', '']);
-  const [totalTime, setTotalTime] = useState(30);
+  const [totalTime, setTotalTime] = useState(5);
   const [filledFieldsData, setFilledFieldsData] = useState([]);
   const [finished, setFinished] = useState(false);
   const [timerValue, setTimerValue] = useState('');
   const [isDisabled, setIsDisabled] = useState(false);
+  const [message, setMessage] = useState('');
+  const [category, setCategory] = useState('');
   let newTotalTime = totalTime;
+  let randomWord = '';
 
+// -----------------------------------------------------FETCH REQUESTS----------------------------------------------------
 
+  const getSyn = () => {
+    console.log(category)
+    fetch(`https://api.api-ninjas.com/v1/thesaurus?word=${category}`, {method: 'GET', 
+      headers: {
+        'x-api-key': 'S3GJvoBwOqtOpm+vxO/xNA==dSnhCQpzwX7LQBW0'
+      }})
+      .then((response) => response.json())
+      .then((data) => {
+        const synonyms = data.synonyms;
+        console.log(synonyms);
+        randomWord = data.synonyms[12];
+        setCategory(randomWord);
+        return synonyms;
+      })
+      .catch();
+  };
+
+// -----------------------------------------------------UPDATE STATE----------------------------------------------------
   const handleInputChange = (e, index) => {
     const { value } = e.target;
     setInputValues((prevValues) => {
@@ -35,6 +58,7 @@ export function Play(props) {
       setFinished(true);
       setIsDisabled(true);
       saveScore(countFilledFields());
+      setMessage("Your answers have been submitted.")
       return "00:00";
     }
     setTotalTime(newTotalTime);
@@ -49,7 +73,12 @@ export function Play(props) {
     return () => clearInterval(intervalId);
   }, [totalTime, finished]);
 
-
+  useEffect(() => {
+      setCategory('red');
+      getSyn();
+  }, []);
+  
+// -----------------------------------------------------SAVE SCORE----------------------------------------------------
   async function saveScore(score) {
     const newScore = { name: userName, score: score};
     updateScoresLocal(newScore);
@@ -88,12 +117,13 @@ export function Play(props) {
           <div className='subheader'>
             <div className='timer'>Timer: {timerValue}</div>
             <div className="category-block">
-              <p>Today's Category:</p>
-              <h2 id="category">Fast Food Places</h2>
+              <p>Category:</p>
+              <h2 id="category">{category}</h2>
             </div>
             <div style={{ height: '200px', overflow: 'auto' }}> 
-              {inputValues.map(( value, index ) => (<input key={index} type="text" class='entry' value={value} disabled={isDisabled} onChange={(e) => handleInputChange(e, index)}/>))}
+              {inputValues.map(( value, index ) => (<input key={index} type="text" className='entry' value={value} disabled={isDisabled} onChange={(e) => handleInputChange(e, index)}/>))}
             </div>
+            <p>{message}</p>
           </div>
       </main>
     </div>
