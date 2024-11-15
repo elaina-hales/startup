@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './play.css';
+import getWord from './getCategory.jsx';
 
 export function Play(props) {
   
@@ -28,7 +29,6 @@ export function Play(props) {
       .then((data) => {
         const synonyms = data.synonyms;
         console.log(synonyms);
-        randomWord = data.synonyms[12];
         setCategory(randomWord);
         return synonyms;
       })
@@ -74,8 +74,7 @@ export function Play(props) {
   }, [totalTime, finished]);
 
   useEffect(() => {
-      setCategory('red');
-      getSyn();
+      setCategory(getWord);
   }, []);
   
 // -----------------------------------------------------SAVE SCORE----------------------------------------------------
