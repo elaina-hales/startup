@@ -50,24 +50,28 @@ export function Play(props) {
         console.log(correct);
         console.log(incorrect);
         let correct_num = document.createElement('div');
-        if (correct.length == 0){
+        let incorrect_num = document.createElement('div');
+        let random = document.getElementById('response');
+
+        if (correct.length === 0 && incorrect.length === 0){
+          correct_num.textContent = `You didn't enter anything. Refresh the page to try again!`
+          random.appendChild(correct_num);
+        }
+        else if (correct.length === 0){
           correct_num.textContent = `You got no answers right. Refresh the page to try again!`;
+          random.appendChild(correct_num);
+        }
+        else if (incorrect.length === 0){
+          incorrect_num.textContent = `All your answers are correct! Congrats!`;
+          random.appendChild(correct_num);
         }
         else {
           correct_num.textContent = `You got ${correct.length} answers right! Your correct answers were: ${correct}.`;
+          incorrect_num.textContent = `You got ${incorrect.length} answers wrong! Your incorrect answers were: ${incorrect}.`;
+          random.appendChild(correct_num);
+          random.appendChild(incorrect_num);
         }
-        let random = document.getElementById('response');
-        random.appendChild(correct_num);
-
-        let incorrect_num = document.createElement('div');
-        if (incorrect.length == 0){
-          correct_num.textContent = `You got no answers incorrect. Congrats!`;
-        }
-        else {
-          incorrect_num.textContent = `You got ${incorrect.length} answers incorrect. Your incorrect answers were: ${incorrect}.`;
-        }
-        random.appendChild(incorrect_num);
-
+        
         let score_text = document.createElement('div');
         score_text.textContent = `Your total score is: ${correct.length}`;
         let random2 = document.getElementById('score');
