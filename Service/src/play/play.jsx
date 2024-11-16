@@ -6,7 +6,7 @@ import getWord from './getCategory.jsx';
 export function Play(props) {
   
   const userName = props.userName;
-  const [inputValues, setInputValues] = useState(['', '', '', '','', '', '', '','', '', '', '','', '', '', '','', '', '', '','', '', '', '']);
+  const [inputValues, setInputValues] = useState(['', '', '', '','', '', '', '','', '', '', '','', '', '', '','', '', '', '','', '', '', '', '', '', '', '']);
   const [totalTime, setTotalTime] = useState(10);
   const [finished, setFinished] = useState(false);
   const [timerValue, setTimerValue] = useState('');
@@ -51,7 +51,7 @@ export function Play(props) {
         let incorrect_num = document.createElement('div');
         let random = document.getElementById('response');
 
-        if (correct.length === 0 && incorrect.length === 0){
+        if (correct.length === 0 && incorrect.length-1 === 0){
           correct_num.textContent = `You didn't enter anything. Refresh the page to try again!`
           random.appendChild(correct_num);
         }
@@ -137,14 +137,16 @@ export function Play(props) {
               <p>Category:</p>
               <h2 id="category">{category}</h2>
             </div>
-            <div style={{ height: '200px', overflow: 'auto' }}> 
+            <div style={{ height: '200px', overflow: 'auto' }} id='entries'> 
               {inputValues.map(( value, index ) => (<input key={index} type="text" className='entry' value={value} disabled={isDisabled} onChange={(e) => handleInputChange(e, index)}/>))}
             </div>
           </div>
           <div id='response'></div>
           <div id='score'></div>
-          <p><em>Answers are checked using Merriam-Webster's Intermediate Thesaurus (Grades 6-8)</em></p>
-          <img src="./public/MWLogo_LightBG_120x120_2x.png" alt="Merriam-Webster logo" height='50' width='50'/>
+          <div>
+            <p><em>Answers are checked using Merriam-Webster's Intermediate Thesaurus (Grades 6-8)</em></p>
+          </div>
+          <img src="MWLogo_LightBG_120x120_2x.png" alt="Merriam-Webster logo" height='50' width='50'/>
       </main>
     </div>
   );

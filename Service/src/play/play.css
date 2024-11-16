@@ -21,13 +21,13 @@
   text-align: center;
 }
 
+#entries {
+  align-items: center;
+}
+
 .entry {
   margin: 3px;
   display: inline;
-}
-
-#button {
-  align-items: center;
 }
 
 #response {
@@ -37,4 +37,8 @@
 #score {
   font-size: 1.5em;
   color:#83689d
+}
+
+img{
+  align-items:center;
 }
