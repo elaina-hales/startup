@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './play.css';
 import getWord from './getCategory.jsx';
-import key from './key.jsx';
 
 export function Play(props) {
   
@@ -21,24 +20,32 @@ export function Play(props) {
 // -----------------------------------------------------FETCH REQUESTS----------------------------------------------------
 
   const getSyn = () => {
-    fetch(`https://dictionaryapi.com/api/v3/references/ithesaurus/json/${category}?key=${key()}`)
+    const response = fetch('/api/fetch', {
+        method: 'post',
+        body: JSON.stringify({ category: category }),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data[0].meta.syns)
-        const synonyms = data[0].meta.syns;
-          inputValues.forEach((i) => {
-            synonyms.forEach((lst) => {
-              if (i !== '') {
-                const itemExists = lst.includes(i);
-                console.log(i, itemExists);
-                if (itemExists === true && !correct.includes(i) && !incorrect.includes(i)){
-                  correct.push(i);
-                }
-                else if (itemExists === false && !incorrect.includes(i) && !correct.includes(i)){
-                  incorrect.push(i);
-                }
+        console.log(data.synonyms);
+        inputValues.forEach((i) => {
+          let itemExists = false;
+          data.synonyms.forEach((lst) => {
+            if (i !== '') {
+              if (lst.includes(i)){
+                itemExists = true;
+              }
+              itemExists = lst.includes(i);
+              console.log(i, itemExists);
               }
           });
+          if (itemExists === true && !correct.includes(i) && !incorrect.includes(i)){
+              correct.push(i);
+          } else if (itemExists === false && !incorrect.includes(i) && !correct.includes(i)){
+              incorrect.push(i);
+          };
         });
         console.log(correct);
         console.log(incorrect);
@@ -134,8 +141,8 @@ export function Play(props) {
           </div>
           <div id='response'></div>
           <div id='score'></div>
-            <img src="MWLogo_LightBG_120x120_2x.pngg" alt="Merriam-Webster logo"/>
-          <p>Answers are checked using Merriam-Webster's Intermediate Thesaurus (Grades 6-8)</p>
+          <img src="./public/MWLogo_LightBG_120x120_2x.png" alt="Merriam-Webster logo" height='20' width='20'/>
+          <span>Answers are checked using Merriam-Webster's Intermediate Thesaurus (Grades 6-8)</span>
       </main>
     </div>
   );

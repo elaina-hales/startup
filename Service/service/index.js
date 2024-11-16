@@ -19,6 +19,19 @@ app.use(express.static('public'));
 var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
+apiRouter.post('/fetch', async (req, res) => {
+  let r_category = req.body.category; 
+  fetch(`https://dictionaryapi.com/api/v3/references/ithesaurus/json/${r_category}?key=6e913875-0401-412a-ad40-2092ee7268f9`)
+    .then((response) => response.json())
+    .then((data) => {
+      res.set('Content-Type', 'application/json');
+      res.send({ synonyms: data[0].meta.syns });
+    })
+    .catch((error) => {
+      res.error('Error fetching synonyms:', error);
+    });
+});
+
 // CreateAuth a new user
 apiRouter.post('/auth/create', async (req, res) => {
   const user = users[req.body.email];
