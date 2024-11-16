@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './play.css';
 import getWord from './getCategory.jsx';
@@ -18,6 +18,9 @@ export function Play(props) {
   const [incorrectResultsList, setIncorrectResultsList] = useState([]);
   let newTotalTime = totalTime;
 
+  let correct = [];
+  let incorrect = [];
+
 // -----------------------------------------------------FETCH REQUESTS----------------------------------------------------
 
   const getSyn = () => {
@@ -32,13 +35,38 @@ export function Play(props) {
           if (i !== '') {
             const itemExists = synonyms.includes(i);
             if (itemExists === true){
-              handleAddCorrectItem(i);
+              correct.push(i);
             }
             else {
-              handleAddIncorrectItem(i);
+              incorrect.push(i);
             }
           }
         });
+        let correct_num = document.createElement('div');
+        if (correct.length == 0){
+          correct_num.textContent = `You got no answers right. Refresh the page to try again!`;
+        }
+        else {
+          correct_num.textContent = `You got ${correct.length} answers right! Your correct answers were: ${correct}.`;
+        }
+        let random = document.getElementById('response');
+        random.appendChild(correct_num);
+
+        let incorrect_num = document.createElement('div');
+        if (incorrect.length == 0){
+          correct_num.textContent = `You got no answers incorrect. Congrats!`;
+        }
+        else {
+          incorrect_num.textContent = `You got ${incorrect.length} answers incorrect. Your incorrect answers were: ${incorrect}.`;
+        }
+        random.appendChild(incorrect_num);
+
+        let score_text = document.createElement('div');
+        score_text.textContent = `Your total score is: ${correct.length}`;
+        let random2 = document.getElementById('score');
+        random2.appendChild(score_text);
+
+        saveScore(correct.length);
 
       })
       .catch((error) => {
@@ -50,12 +78,10 @@ export function Play(props) {
 
   const handleAddCorrectItem = (newItem) => {
     setCorrectResultsList([...correctResultsList, newItem]);
-    console.log(newItem);
   };
 
   const handleAddIncorrectItem = (newItem) => {
     setIncorrectResultsList([...incorrectResultsList, newItem]);
-    console.log(newItem);
   };
 
   const handleInputChange = (e, index) => {
@@ -79,8 +105,6 @@ export function Play(props) {
     if (newTotalTime === 0 && finished === false){
       setFinished(true);
       setIsDisabled(true);
-      saveScore(countFilledFields());
-      setMessage("Your answers have been submitted.")
       getSyn();
       return "00:00";
     }
@@ -145,11 +169,9 @@ export function Play(props) {
             <div style={{ height: '200px', overflow: 'auto' }}> 
               {inputValues.map(( value, index ) => (<input key={index} type="text" className='entry' value={value} disabled={isDisabled} onChange={(e) => handleInputChange(e, index)}/>))}
             </div>
-            <p>{message}</p>
-            {/* <div>
-              {print}
-            </div> */}
           </div>
+          <div id='response'></div>
+          <div id='score'></div>
       </main>
     </div>
   );

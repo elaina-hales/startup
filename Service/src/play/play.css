@@ -29,3 +29,12 @@
 #button {
   align-items: center;
 }
+
+#response {
+  text-align: center;
+}
+
+#score {
+  font-size: 1.5em;
+  color:#83689d
+}
