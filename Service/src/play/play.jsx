@@ -7,8 +7,7 @@ export function Play(props) {
   
   const userName = props.userName;
   const [inputValues, setInputValues] = useState(['', '', '', '','', '', '', '','', '', '', '','', '', '', '','', '', '', '','', '', '', '']);
-  const [totalTime, setTotalTime] = useState(10);
-  const [filledFieldsData, setFilledFieldsData] = useState([]);
+  const [totalTime, setTotalTime] = useState(30);
   const [finished, setFinished] = useState(false);
   const [timerValue, setTimerValue] = useState('');
   const [isDisabled, setIsDisabled] = useState(false);
@@ -64,7 +63,6 @@ export function Play(props) {
         random2.appendChild(score_text);
 
         saveScore(correct.length, category);
-
       })
       .catch((error) => {
         console.error('Error fetching synonyms:', error);
@@ -78,12 +76,6 @@ export function Play(props) {
       const newValues = prevValues.map((val, i) => (i === index ? value : val));
       return newValues;
     });
-  };
-
-  const countFilledFields = () => {
-    let filled = inputValues.filter(value => value.trim() !== '');
-    setFilledFieldsData(filled);
-    return filled.length;
   };
 
   const computeTimerValue = () => {
