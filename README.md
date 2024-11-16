@@ -62,3 +62,13 @@ For this deliverable I used JavaScript and React so that the application almost 
     - [x] Header/footer - These are complete, with the hamburger menu fully functional now.
 - [x] **Router** - Routing between login, play, scores components.
 - [x] **Hooks** - They are used throughout the app to check on and update the status of the play and login pages.
+
+## Service deliverable
+
+For this deliverable I added backend endpoints that receives the thesaurus input and returns the correct and incorrect answers..
+
+- [x] **Node.js/Express HTTP service** - done!
+- [x] **Static middleware for frontend** - done!
+- [x] **Calls to third party endpoints** - I use dictionaryapi.com to pull the thesaurus data!
+- [x] **Backend service endpoints** - Placeholders for login that stores the current user on the server. Endpoints for fetch calls for security reasons.
+- [x] **Frontend calls service endpoints** - I did this using the fetch function.
