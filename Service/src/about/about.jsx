@@ -16,7 +16,7 @@ export function About() {
         </p>
 
         <div>
-          <img width="600px" src="howtoscreenshot.png" alt="the play page" />
+          <img width="600px" src="about.png" alt="the play page" />
         </div>
         
         <p>Once the time has run out, your answers will be automatically submitted and checked for validity. You can see your score on the scores page.
