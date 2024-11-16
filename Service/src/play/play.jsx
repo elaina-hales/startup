@@ -7,17 +7,16 @@ export function Play(props) {
   
   const userName = props.userName;
   const [inputValues, setInputValues] = useState(['', '', '', '','', '', '', '','', '', '', '','', '', '', '','', '', '', '','', '', '', '']);
-  const [totalTime, setTotalTime] = useState(15);
+  const [totalTime, setTotalTime] = useState(10);
   const [filledFieldsData, setFilledFieldsData] = useState([]);
   const [finished, setFinished] = useState(false);
   const [timerValue, setTimerValue] = useState('');
   const [isDisabled, setIsDisabled] = useState(false);
   const [message, setMessage] = useState('');
   const [category, setCategory] = useState('');
-  const [resultsList, setResultsList] = useState([]);
-
+  const [correctResultsList, setCorrectResultsList] = useState([]);
+  const [incorrectResultsList, setIncorrectResultsList] = useState([]);
   let newTotalTime = totalTime;
-  const results_lst = [];
 
 // -----------------------------------------------------FETCH REQUESTS----------------------------------------------------
 
@@ -31,11 +30,16 @@ export function Play(props) {
         const synonyms = data.synonyms;
         inputValues.forEach((i) => {
           if (i !== '') {
-            const exists = synonyms.includes(i);
-            results_lst.push({ input: i, exists: exists });
+            const itemExists = synonyms.includes(i);
+            if (itemExists === true){
+              handleAddCorrectItem(i);
+            }
+            else {
+              handleAddIncorrectItem(i);
+            }
           }
         });
-        return synonyms;
+
       })
       .catch((error) => {
         console.error('Error fetching synonyms:', error);
@@ -43,6 +47,16 @@ export function Play(props) {
   };
 
 // -----------------------------------------------------UPDATE STATE----------------------------------------------------
+
+  const handleAddCorrectItem = (newItem) => {
+    setCorrectResultsList([...correctResultsList, newItem]);
+    console.log(newItem);
+  };
+
+  const handleAddIncorrectItem = (newItem) => {
+    setIncorrectResultsList([...incorrectResultsList, newItem]);
+    console.log(newItem);
+  };
 
   const handleInputChange = (e, index) => {
     const { value } = e.target;
@@ -66,8 +80,8 @@ export function Play(props) {
       setFinished(true);
       setIsDisabled(true);
       saveScore(countFilledFields());
-      getSyn();
       setMessage("Your answers have been submitted.")
+      getSyn();
       return "00:00";
     }
     setTotalTime(newTotalTime);
@@ -85,7 +99,7 @@ export function Play(props) {
   useEffect(() => {
     setCategory(getWord);
   }, []);
-  
+
 // -----------------------------------------------------SAVE SCORE----------------------------------------------------
   async function saveScore(score) {
     const newScore = { name: userName, score: score};
@@ -132,11 +146,9 @@ export function Play(props) {
               {inputValues.map(( value, index ) => (<input key={index} type="text" className='entry' value={value} disabled={isDisabled} onChange={(e) => handleInputChange(e, index)}/>))}
             </div>
             <p>{message}</p>
-            <div>
-              <div>
-                {resultsList}
-              </div>
-            </div>
+            {/* <div>
+              {print}
+            </div> */}
           </div>
       </main>
     </div>
