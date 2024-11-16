@@ -6,10 +6,11 @@ export function Scores() {
   const [scores, setScores] = React.useState([]);
 
   React.useEffect(() => {
-    const scoresText = localStorage.getItem('scores');
-    if (scoresText) {
-      setScores(JSON.parse(scoresText));
-    }
+    fetch('/api/scores')
+      .then((response) => response.json())
+      .then((scores) => {
+        setScores(scores);
+      });
   }, []);
 
   const scoreRows = [];
@@ -20,6 +21,7 @@ export function Scores() {
           <td>{i}</td>
           <td>{score.name.split('@')[0]}</td>
           <td>{score.score}</td>
+          <td>{score.category}</td>
         </tr>
       );
     }
@@ -37,9 +39,10 @@ export function Scores() {
       <table className='table table-columns'>
         <thead className='table-light'>
           <tr>
-            <th>Place</th>
+            <th>#</th>
             <th>Name</th>
             <th>Score</th>
+            <th>Word</th>
           </tr>
         </thead>
         <tbody id='scores'>{scoreRows}</tbody>

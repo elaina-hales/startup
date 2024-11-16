@@ -12,10 +12,7 @@ export function Play(props) {
   const [finished, setFinished] = useState(false);
   const [timerValue, setTimerValue] = useState('');
   const [isDisabled, setIsDisabled] = useState(false);
-  const [message, setMessage] = useState('');
   const [category, setCategory] = useState('');
-  const [correctResultsList, setCorrectResultsList] = useState([]);
-  const [incorrectResultsList, setIncorrectResultsList] = useState([]);
   let newTotalTime = totalTime;
 
   let correct = [];
@@ -66,7 +63,7 @@ export function Play(props) {
         let random2 = document.getElementById('score');
         random2.appendChild(score_text);
 
-        saveScore(correct.length);
+        saveScore(correct.length, category);
 
       })
       .catch((error) => {
@@ -75,15 +72,6 @@ export function Play(props) {
   };
 
 // -----------------------------------------------------UPDATE STATE----------------------------------------------------
-
-  const handleAddCorrectItem = (newItem) => {
-    setCorrectResultsList([...correctResultsList, newItem]);
-  };
-
-  const handleAddIncorrectItem = (newItem) => {
-    setIncorrectResultsList([...incorrectResultsList, newItem]);
-  };
-
   const handleInputChange = (e, index) => {
     const { value } = e.target;
     setInputValues((prevValues) => {
@@ -125,36 +113,14 @@ export function Play(props) {
   }, []);
 
 // -----------------------------------------------------SAVE SCORE----------------------------------------------------
-  async function saveScore(score) {
-    const newScore = { name: userName, score: score};
-    updateScoresLocal(newScore);
-  }
+  async function saveScore(score, category) {
+    const newScore = { name: userName, score: score, category: category };
 
-  function updateScoresLocal(newScore) {
-    let scores = [];
-    const scoresText = localStorage.getItem('scores');
-    if (scoresText) {
-      scores = JSON.parse(scoresText);
-    }
-
-    let found = false;
-    for (const [i, prevScore] of scores.entries()) {
-      if (newScore.score > prevScore.score) {
-        scores.splice(i, 0, newScore);
-        found = true;
-        break;
-      }
-    }
-
-    if (!found) {
-      scores.push(newScore);
-    }
-
-    if (scores.length > 10) {
-      scores.length = 10;
-    }
-
-    localStorage.setItem('scores', JSON.stringify(scores));
+    await fetch('/api/score', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(newScore),
+    });
   }
 
   return (
