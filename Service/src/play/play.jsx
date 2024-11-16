@@ -7,7 +7,7 @@ export function Play(props) {
   
   const userName = props.userName;
   const [inputValues, setInputValues] = useState(['', '', '', '','', '', '', '','', '', '', '','', '', '', '','', '', '', '','', '', '', '', '', '', '', '']);
-  const [totalTime, setTotalTime] = useState(10);
+  const [totalTime, setTotalTime] = useState(2);
   const [finished, setFinished] = useState(false);
   const [timerValue, setTimerValue] = useState('');
   const [isDisabled, setIsDisabled] = useState(false);

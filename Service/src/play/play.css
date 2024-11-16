@@ -21,10 +21,6 @@
   text-align: center;
 }
 
-#entries {
-  align-items: center;
-}
-
 .entry {
   margin: 3px;
   display: inline;
@@ -36,7 +32,9 @@
 
 #score {
   font-size: 1.5em;
-  color:#83689d
+  padding: 0.5em;
+  text-align: center;
+  color:#83689d;
 }
 
 img{
