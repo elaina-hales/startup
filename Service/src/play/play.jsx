@@ -33,22 +33,20 @@ export function Play(props) {
         inputValues.forEach((i) => {
           let itemExists = false;
           data.synonyms.forEach((lst) => {
-            if (i !== '') {
+            if (i !== '' || i !== ' ') {
               if (lst.includes(i)){
                 itemExists = true;
               }
-              itemExists = lst.includes(i);
-              console.log(i, itemExists);
-              }
+            }
           });
-          if (itemExists === true && !correct.includes(i) && !incorrect.includes(i)){
-              correct.push(i);
-          } else if (itemExists === false && !incorrect.includes(i) && !correct.includes(i)){
-              incorrect.push(i);
-          };
+          if (i !== '' || i !== ' ') {
+            if (itemExists === true && !correct.includes(i) && !incorrect.includes(i)){
+                correct.push(i);
+            } else if (itemExists === false && !incorrect.includes(i) && !correct.includes(i)){
+                incorrect.push(i);
+            };
+          }
         });
-        console.log(correct);
-        console.log(incorrect);
         let correct_num = document.createElement('div');
         let incorrect_num = document.createElement('div');
         let random = document.getElementById('response');
@@ -61,13 +59,13 @@ export function Play(props) {
           correct_num.textContent = `You got no answers right. Refresh the page to try again!`;
           random.appendChild(correct_num);
         }
-        else if (incorrect.length === 0){
+        else if (incorrect.length-1 === 0){
           incorrect_num.textContent = `All your answers are correct! Congrats!`;
-          random.appendChild(correct_num);
+          random.appendChild(incorrect_num);
         }
         else {
           correct_num.textContent = `You got ${correct.length} answers right! Your correct answers were: ${correct}.`;
-          incorrect_num.textContent = `You got ${incorrect.length} answers wrong! Your incorrect answers were: ${incorrect}.`;
+          incorrect_num.textContent = `You got ${incorrect.length-1} answers wrong! Your incorrect answers were: ${incorrect}.`;
           random.appendChild(correct_num);
           random.appendChild(incorrect_num);
         }
@@ -145,8 +143,8 @@ export function Play(props) {
           </div>
           <div id='response'></div>
           <div id='score'></div>
-          <img src="./public/MWLogo_LightBG_120x120_2x.png" alt="Merriam-Webster logo" height='20' width='20'/>
-          <span>Answers are checked using Merriam-Webster's Intermediate Thesaurus (Grades 6-8)</span>
+          <p><em>Answers are checked using Merriam-Webster's Intermediate Thesaurus (Grades 6-8)</em></p>
+          <img src="./public/MWLogo_LightBG_120x120_2x.png" alt="Merriam-Webster logo" height='50' width='50'/>
       </main>
     </div>
   );
