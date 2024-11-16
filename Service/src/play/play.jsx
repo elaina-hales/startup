@@ -2,12 +2,13 @@ import React, { useState, useEffect, useRef } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './play.css';
 import getWord from './getCategory.jsx';
+import key from './key.jsx';
 
 export function Play(props) {
   
   const userName = props.userName;
   const [inputValues, setInputValues] = useState(['', '', '', '','', '', '', '','', '', '', '','', '', '', '','', '', '', '','', '', '', '']);
-  const [totalTime, setTotalTime] = useState(30);
+  const [totalTime, setTotalTime] = useState(10);
   const [finished, setFinished] = useState(false);
   const [timerValue, setTimerValue] = useState('');
   const [isDisabled, setIsDisabled] = useState(false);
@@ -20,24 +21,27 @@ export function Play(props) {
 // -----------------------------------------------------FETCH REQUESTS----------------------------------------------------
 
   const getSyn = () => {
-    fetch(`https://api.api-ninjas.com/v1/thesaurus?word=${category}`, {method: 'GET', 
-      headers: {
-        'x-api-key': 'S3GJvoBwOqtOpm+vxO/xNA==dSnhCQpzwX7LQBW0'
-      }})
+    fetch(`https://dictionaryapi.com/api/v3/references/ithesaurus/json/${category}?key=${key()}`)
       .then((response) => response.json())
       .then((data) => {
-        const synonyms = data.synonyms;
-        inputValues.forEach((i) => {
-          if (i !== '') {
-            const itemExists = synonyms.includes(i);
-            if (itemExists === true){
-              correct.push(i);
-            }
-            else {
-              incorrect.push(i);
-            }
-          }
+        console.log(data[0].meta.syns)
+        const synonyms = data[0].meta.syns;
+          inputValues.forEach((i) => {
+            synonyms.forEach((lst) => {
+              if (i !== '') {
+                const itemExists = lst.includes(i);
+                console.log(i, itemExists);
+                if (itemExists === true && !correct.includes(i) && !incorrect.includes(i)){
+                  correct.push(i);
+                }
+                else if (itemExists === false && !incorrect.includes(i) && !correct.includes(i)){
+                  incorrect.push(i);
+                }
+              }
+          });
         });
+        console.log(correct);
+        console.log(incorrect);
         let correct_num = document.createElement('div');
         if (correct.length == 0){
           correct_num.textContent = `You got no answers right. Refresh the page to try again!`;
@@ -130,6 +134,8 @@ export function Play(props) {
           </div>
           <div id='response'></div>
           <div id='score'></div>
+            <img src="MWLogo_LightBG_120x120_2x.pngg" alt="Merriam-Webster logo"/>
+          <p>Answers are checked using Merriam-Webster's Intermediate Thesaurus (Grades 6-8)</p>
       </main>
     </div>
   );
