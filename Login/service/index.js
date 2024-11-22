@@ -1,22 +1,30 @@
+const cookieParser = require('cookie-parser');
+const bcrypt = require('bcrypt');
 const express = require('express');
-const uuid = require('uuid');
 const app = express();
+const DB = require('./database.js');
 
 // The scores and users are saved in memory and disappear whenever the service is restarted.
-let users = {};
-let scores = [];
 
-// The service port. In production the front-end code is statically hosted by the service on the same port.
-const port = process.argv.length > 2 ? process.argv[2] : 4000;
+const authCookieName = 'token';
+
+// The service port may be set on the command line
+const port = process.argv.length > 2 ? process.argv[2] : 3000;
 
 // JSON body parsing using built-in middleware
 app.use(express.json());
 
-// Serve up the front-end static content hosting
+// Use the cookie parser middleware for tracking authentication tokens
+app.use(cookieParser());
+
+// Serve up the applications static content
 app.use(express.static('public'));
 
+// Trust headers that are forwarded from the proxy so we can determine IP addresses
+app.set('trust proxy', true);
+
 // Router for service endpoints
-var apiRouter = express.Router();
+const apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
 apiRouter.post('/fetch', async (req, res) => {
