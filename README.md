@@ -77,9 +77,9 @@ For this deliverable I added backend endpoints that receives the thesaurus input
 
 For this deliverable I associate the votes with the logged in user. I stored the votes in a database.
 
- [x] MongoDB Atlas database created - done!
- [x] Stores data in MongoDB - done!
- [x] User registration - Creates a new account in the database.
- [x] existing user - Stores the scores under the same user if the user already exists.
- [x] Use MongoDB to store credentials - Stores both user and their scores.
- [x] Restricts functionality - You cannot play until you have logged in. This happens in the front and back ends.
+- [x] **MongoDB Atlas database created** - done!
+- [x] **Stores data in MongoDB** - done!
+- [x] **User registration** - Creates a new account in the database.
+- [x] **existing user** - Stores the scores under the same user if the user already exists.
+- [x] **Use MongoDB to store credentials** - Stores both user and their scores.
+- [x] **Restricts functionality** - You cannot play until you have logged in. This happens in the front and back ends.
