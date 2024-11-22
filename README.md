@@ -72,3 +72,14 @@ For this deliverable I added backend endpoints that receives the thesaurus input
 - [x] **Calls to third party endpoints** - I use dictionaryapi.com to pull the thesaurus data!
 - [x] **Backend service endpoints** - Placeholders for login that stores the current user on the server. Endpoints for fetch calls for security reasons.
 - [x] **Frontend calls service endpoints** - I did this using the fetch function.
+
+## DB/Login deliverable
+
+For this deliverable I associate the votes with the logged in user. I stored the votes in a database.
+
+ [x] MongoDB Atlas database created - done!
+ [x] Stores data in MongoDB - done!
+ [x] User registration - Creates a new account in the database.
+ [x] existing user - Stores the scores under the same user if the user already exists.
+ [x] Use MongoDB to store credentials - Stores both user and their scores.
+ [x] Restricts functionality - You cannot play until you have logged in. This happens in the front and back ends.
