@@ -4,8 +4,6 @@ const express = require('express');
 const app = express();
 const DB = require('./database.js');
 
-// The scores and users are saved in memory and disappear whenever the service is restarted.
-
 const authCookieName = 'token';
 
 // The service port may be set on the command line
