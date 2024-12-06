@@ -1,0 +1,18 @@
+td {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 1em;
+  border-left: 1px solid rgb(225, 225, 225) !important;
+  border-right: 1px solid rgb(225, 225, 225) !important;
+}
+
+th {
+  background-color: #83689d !important;
+  color: white !important;
+}
+
+table {
+  margin-left: 4em;
+  margin-right: 4em;
+}
