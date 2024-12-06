@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './play.css';
 import getWord from './getCategory.jsx';
+import { Players } from './players';
+import { GameEvent, GameNotifier } from './gameNotifier';
 
 export function Play(props) {
   
@@ -126,11 +128,14 @@ export function Play(props) {
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(newScore),
     });
+
+    GameNotifier.broadcastEvent(userName, GameEvent.End, newScore);
   }
 
   return (
     <div className='body'>
         <main>
+          <Players userName={props.userName} />
           <div className='subheader'>
             <div className='timer'>Timer: {timerValue}</div>
             <div className="category-block">
