@@ -9,7 +9,7 @@ export function Play(props) {
   
   const userName = props.userName;
   const [inputValues, setInputValues] = useState(['', '', '', '','', '', '', '','', '', '', '','', '', '', '','', '', '', '','', '', '', '', '', '', '', '']);
-  const [totalTime, setTotalTime] = useState(10);
+  const [totalTime, setTotalTime] = useState(30);
   const [finished, setFinished] = useState(false);
   const [timerValue, setTimerValue] = useState('');
   const [isDisabled, setIsDisabled] = useState(false);
@@ -136,7 +136,7 @@ export function Play(props) {
   return (
     <div className='body'>
         <main>
-          <Players userName={props.userName} />
+        <Players userName={props.userName} />
           <div className='subheader'>
             <div className='timer'>Timer: {timerValue}</div>
             <div className="category-block">
