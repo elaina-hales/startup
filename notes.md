@@ -354,48 +354,63 @@ submitDataEl.addEventListener('click', function (event) {
 7. Given the following MongoDB query, select all of the matching documents {name:Mark}
 - Examples of solid MongoDB queries:
 // find all houses
+
 db.house.find();
 
-
 // find houses with two or more bedrooms
+
 db.house.find({ beds: { $gte: 2 } });
 
-
 // find houses that are available with less than three beds
+
 db.house.find({ status: 'available', beds: { $lt: 3 } });
 
-
 // find houses with either less than three beds or less than $1000 a night
+
 db.house.find({ $or: [(beds: { $lt: 3 }), (price: { $lt: 1000 })] });
 
-
 // find houses with the text 'modern' or 'beach' in the summary
+
 db.house.find({ summary: /(modern|beach)/i });
 
 // name must start uppercase and score must be less than 3
+
 {$or: [{name:/J.*/}, {score: {$lt:3}}]}
+
 8. How should user passwords be stored?
 - they should be hashed so they don't get hacked
 9. Assuming the following node.js websocket code in the back end, and the following front end websocket code, what will the front end log to the console?
 - // Executed on server:
 const { WebSocketServer } = require( 'ws');
+
 const wss = new WebSocketServer({ port: 9900 }) ;
 
 
+
 wss.on('connection', (ws) > {
+
   ws. on('message', (data) =
+
   {
     const msg = String.fromCharCode( ... data) ;
+
     ws.send("Server:${msg});
+
   }):
+
 }）；
 
 // Executed on browser:
+
 const socket = new WebSocket('ws://localhost:9900'):
+
 socket.onmessage = (event) ={
+
     console. log(Client:${event.data}); // with back quotes
-}:
+
+};
 socket.send( 'Hello');
+
 // sends this : Client:Server:Hello
 
 10. What is the websocket protocol intended to provide?
@@ -426,7 +441,7 @@ socket.send( 'Hello');
     );
 };
 
-// displays tacofish
+- // displays tacofish
 
 13. Given a set of React components that include each other, what will be generated
 - don't overthink it it is what it look like
@@ -488,7 +503,7 @@ JSX File:
 
 - React Component:
 function Demo(props) {
-  return <b>Hello {props.who}</b>;
+  return <Hello {props.who}>;
 }
 
 ### React hooks:
@@ -596,10 +611,10 @@ use jsx so that vite can read it
 - to deploy to a production environment, use npm run dev
 
 ### How the internet works (layers):
-    APP -- HTTP/SSH 
-    TCP -- Port (back end server)
-    Internet -- IPV6/V4 (gotten using the DHCP protocol) -- (this is the post office)   MAC layer
-    physical media -- wifi, ethernet, or cellular (connects with a hot spot) (DHCP)     MAC layer
+- APP -- HTTP/SSH 
+- TCP -- Port (back end server)
+- Internet -- IPV6/V4 (gotten using the DHCP protocol) -- (this is the post office)   MAC layer
+- physical media -- wifi, ethernet, or cellular (connects with a hot spot) (DHCP)     MAC layer
 
 Specs:
     *can remove any of these layers and they will work around it
@@ -626,23 +641,26 @@ Cookies and Errors:
 Node Web Service
     HTTP is hypertext transfer protocol (how things talk to each other)
     const server = http.createServer(function (request, response){
+
         // do some stuff with those objects
+
         // called whenever the server gets an http request
+
         // must end with res.end();
+
     });
 
-    req has a parameter method and another url 
-    we write to url and do the method
-    the default method is get
-    you can run node from your back end code and debug it here 
+- req has a parameter method and another url 
+- we write to url and do the method
+- the default method is get
+- you can run node from your back end code and debug it here 
 
 
     server.listen(8080, () =>{
         // what to do as we wait
     });
-
-    port 8080 is local host
-    node runs and interprets this code (creates one of these servers and listens)
+- port 8080 is local host
+- node runs and interprets this code (creates one of these servers and listens)
 
 
 Express
@@ -721,7 +739,7 @@ Mongo DB
 - now we can post info about the user. It will bring a token back that is a unique identifier that says something
 - hash functions are one way functions
 
-the back end always existed, but this time we are writing it
-Caddy looks for and deploys your files, makes sure they're in the right spots
-Src should not change, neither should deploy script
+- the back end always existed, but this time we are writing it
+- Caddy looks for and deploys your files, makes sure they're in the right spots
+- Src should not change, neither should deploy script
 creating a secure api router with a new name that allows us to serve things you can only access if you are authenticated
